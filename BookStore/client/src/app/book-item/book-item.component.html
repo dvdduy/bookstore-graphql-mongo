@@ -1,0 +1,7 @@
+<a class="list-group-item list-group-item-action flex-column align-items-start" [class.active]="isActive" (click)="onClick()">
+    <div class="d-flex w-100 justify-content-between">
+      <b class="mb-1">{{book.title}}</b>
+      <span title="Reviews" class="badge bg-warning text-dark h-25">{{book.averageReview ?? '-'}}</span>
+    </div>                    
+    <small>Published by {{book.publisher}}</small>                    
+</a>

@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-2">
+        <img [src]="book.imageUrl" width="128">
+    </div>
+    <div class="col-10">
+        <div> 
+            <h5>{{book.title}}</h5>
+            <span>{{book.publishedDate | date }}</span>
+        </div>        
+        <div> <span>by {{book.authors | authorNames}} (Authors) </span> </div>
+        <div> 
+            <span class="badge bg-warning rounded-pill">{{book.averageReview ?? '-'}}</span> - {{book.reviews.length}} ratings
+        </div>        
+        <hr>
+        <div>
+            <span><strong>About the book:</strong> {{book.description }}</span>
+        </div>
+        <hr>
+        <div *ngIf="book.reviews.length === 0">
+            <span> No reviews </span>
+        </div>
+        <div *ngIf="book.reviews.length > 0">
+            <strong>Reviews</strong>
+
+            <div class="overflow-auto" style="height: 500px;">
+                <ng-container *ngFor="let review of book.reviews">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <span class="badge bg-warning rounded-pill">{{review.rating}}</span> 
+                            <span class="mb-1">{{review.title}}</span>
+                        </div>                        
+                        <div class="card-body">                          
+                        <p class="card-text">{{review.description}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

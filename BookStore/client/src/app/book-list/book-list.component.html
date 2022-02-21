@@ -1,0 +1,6 @@
+<div class="list-group">
+    <app-book-item *ngFor="let book of books" 
+        [book]="book" [isActive]="book === selectedBook"
+        (selected)="onBookSelected($event)">
+    </app-book-item>
+</div>

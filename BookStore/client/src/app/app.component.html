@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Book store</h1>
+
+    <div class="row">
+        <div class="col-4">
+            <app-book-list [books]="books$ | async" 
+                [selectedBook]="selectedBook"
+                (selected)="onSelectBook($event)" >
+            </app-book-list>
+        </div>
+        <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+                <ng-container *ngIf="bookDetail">
+                    <app-book-detail [book]="bookDetail"></app-book-detail>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
