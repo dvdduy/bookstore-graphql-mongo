@@ -68,11 +68,13 @@ A **learning project** demonstrating modern full-stack development with GraphQL,
 - **Loading & error states**
 
 ### **DevOps**
-- **GitHub Actions** CI/CD pipeline
-- **Automated testing** on push/PR
-- **Docker** image building & publishing
-- **Dependabot** dependency updates
-- **Security scanning** with CodeQL & Trivy
+- **GitHub Actions** CI/CD pipeline (minimal for fast learning)
+- **Automated testing** on every push/PR
+- **Docker** support for containerization
+- **Manual Docker builds** (no automatic publishing)
+- **Dependabot** for dependency updates
+
+> **Intentionally simple!** CI runs tests quickly (~3-4 min). Docker images build on-demand. Perfect for learning without DevOps overhead.
 
 ### **Testing**
 - **97 total tests** (11 backend unit, 13 integration, 79 frontend)

@@ -452,22 +452,25 @@ graph LR
 graph TB
     A[Docker] --> B[Docker Compose]
     C[GitHub Actions] --> D[CI Pipeline]
-    C --> E[CD Pipeline]
-    D --> F[Automated Tests]
+    C --> E[CD Pipeline<br/>Manual Only]
+    D --> F[Automated Tests<br/>103 tests]
     E --> G[GHCR Images]
     
     style A fill:#2496ed
     style C fill:#2088ff
     style F fill:#28a745
     style G fill:#6e5494
+    style E fill:#ffeb3b
 ```
 
 **Key Tools:**
-- **Docker** - Containerization
+- **Docker** - Containerization (local development)
 - **Docker Compose** - Multi-container orchestration
-- **GitHub Actions** - CI/CD automation
-- **GHCR** - Container image registry
+- **GitHub Actions** - Minimal CI/CD (tests only)
+- **GHCR** - Container image registry (manual trigger)
 - **Dependabot** - Dependency updates
+
+> **Note:** Intentionally minimal! CD builds Docker images only when manually triggered or on git tags. Focus is on learning the stack, not DevOps complexity. See [CICD.md](CICD.md) for details.
 
 ---
 
