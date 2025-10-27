@@ -61,7 +61,8 @@ try
     // GraphQL
     builder.Services
         .AddGraphQLServer()
-        .AddQueryType<Query>();
+        .AddQueryType<Query>()
+        .AddMutationType<Mutation>();
 
     // Health checks
     builder.Services.AddHealthChecks()

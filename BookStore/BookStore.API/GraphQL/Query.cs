@@ -1,4 +1,5 @@
-﻿using BookStore.Core.Entities;
+﻿using BookStore.API.GraphQL.Types;
+using BookStore.Core.Entities;
 using BookStore.Core.Repositories;
 using HotChocolate;
 using HotChocolate.Data;
@@ -21,6 +22,44 @@ namespace BookStore.API.GraphQL
             catch (Exception ex)
             {
                 throw new GraphQLException($"Failed to retrieve books: {ex.Message}");
+            }
+        }
+
+        public async Task<PagedBooksResult> GetPagedBooksAsync(
+            [Service] IBookRepository bookRepository,
+            int page = 1,
+            int pageSize = 10)
+        {
+            // Validation
+            if (page < 1)
+            {
+                throw new GraphQLException("Page must be greater than 0");
+            }
+
+            if (pageSize < 1 || pageSize > 100)
+            {
+                throw new GraphQLException("Page size must be between 1 and 100");
+            }
+
+            try
+            {
+                var (books, totalCount) = await bookRepository.GetPagedAsync(page, pageSize);
+                var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+
+                return new PagedBooksResult
+                {
+                    Books = books,
+                    TotalCount = totalCount,
+                    Page = page,
+                    PageSize = pageSize,
+                    TotalPages = totalPages,
+                    HasNextPage = page < totalPages,
+                    HasPreviousPage = page > 1
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new GraphQLException($"Failed to retrieve paged books: {ex.Message}");
             }
         }
 
