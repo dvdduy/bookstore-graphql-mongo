@@ -87,9 +87,11 @@ A **learning project** demonstrating modern full-stack development with GraphQL,
 | Document | What's Inside |
 |----------|---------------|
 | **[docs/SETUP.md](docs/SETUP.md)** | Complete setup guide (manual & Docker) |
-| **[docs/DOCKER.md](docs/DOCKER.md)** | Docker workflows & troubleshooting |
-| **[docs/TESTING.md](docs/TESTING.md)** | How to run & write tests |
+| **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** | 🎨 System design with C4 diagrams (visual!) |
 | **[docs/API.md](docs/API.md)** | GraphQL API reference with examples |
+| **[docs/TESTING.md](docs/TESTING.md)** | How to run & write tests (103 tests!) |
+| **[docs/DOCKER.md](docs/DOCKER.md)** | Docker workflows & troubleshooting |
+| **[docs/CICD.md](docs/CICD.md)** | CI/CD pipeline with GitHub Actions |
 | **[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)** | Contribution guidelines |
 
 ---

@@ -1,34 +1,60 @@
 # 🏗️ Architecture Documentation
 
-Comprehensive architecture documentation for the BookStore GraphQL MongoDB application using C4 Model diagrams.
+Visual guide to understanding the BookStore system architecture using C4 Model diagrams.
+
+> **TL;DR:** This is a 3-tier web app: Angular frontend → .NET GraphQL API → MongoDB. Jump to [Container Diagram](#level-2-container-diagram) for the big picture, or [Quick Reference](#-quick-reference) for specific topics.
 
 ---
 
-## 📋 Table of Contents
+## ⚡ Quick Reference
 
-- [Overview](#overview)
-- [C4 Model Diagrams](#c4-model-diagrams)
-  - [Level 1: System Context](#level-1-system-context)
-  - [Level 2: Container Diagram](#level-2-container-diagram)
-  - [Level 3: Component Diagram (API)](#level-3-component-diagram-api)
-  - [Level 3: Component Diagram (Frontend)](#level-3-component-diagram-frontend)
-- [Data Flow](#data-flow)
-- [Deployment Architecture](#deployment-architecture)
-- [Testing Architecture](#testing-architecture)
-- [Technology Stack](#technology-stack)
+**Just want to see:**
+- 🎨 [System Overview](#level-2-container-diagram) - Start here! Big picture in one diagram
+- 🔄 [How data flows](#data-flow) - Request/response sequences
+- 🐳 [Docker setup](#deployment-architecture) - Container architecture
+- 🧪 [Test architecture](#testing-architecture) - How 103 tests work
+- 🛠️ [Tech stack](#technology-stack) - What we use and why
+
+**Need details:**
+- [Backend internals](#level-3-component-diagram-api) - API components
+- [Frontend internals](#level-3-component-diagram-frontend) - Angular components
+- [Architecture decisions](#-architecture-decisions) - Why GraphQL? Why MongoDB?
 
 ---
 
-## 🎯 Overview
+## 🎯 Overview (30-second version)
 
-This is a **full-stack learning project** demonstrating modern web application architecture with:
-
+**Stack:**
 - **Frontend:** Angular 18 SPA with Apollo GraphQL Client
 - **Backend:** .NET 9 GraphQL API with HotChocolate
 - **Database:** MongoDB with proper indexing and patterns
 - **DevOps:** Docker containerization and GitHub Actions CI/CD
 
 **Architecture Style:** Clean Architecture with clear separation of concerns
+
+**Complexity:** Intentionally comprehensive for learning purposes - feel free to skip sections!
+
+---
+
+## 📋 Full Table of Contents
+
+<details>
+<summary>Click to expand all sections</summary>
+
+- [Overview](#overview)
+- [C4 Model Diagrams](#c4-model-diagrams)
+  - [Level 1: System Context](#level-1-system-context)
+  - [Level 2: Container Diagram](#level-2-container-diagram) ⭐ Start here
+  - [Level 3: Component Diagram (API)](#level-3-component-diagram-api)
+  - [Level 3: Component Diagram (Frontend)](#level-3-component-diagram-frontend)
+- [Data Flow](#data-flow)
+- [Deployment Architecture](#deployment-architecture)
+- [Testing Architecture](#testing-architecture)
+- [Technology Stack](#technology-stack)
+- [Architecture Decisions](#-architecture-decisions)
+- [Learning Objectives](#-learning-objectives)
+
+</details>
 
 ---
 
@@ -504,11 +530,15 @@ This architecture demonstrates:
 
 ## 📚 Related Documentation
 
-- **[API Documentation](API.md)** - GraphQL schema and queries
-- **[Testing Guide](TESTING.md)** - 103 comprehensive tests
-- **[Docker Setup](DOCKER.md)** - Containerization guide
-- **[CI/CD Pipeline](CICD.md)** - Automation setup
-- **[Setup Guide](SETUP.md)** - Getting started
+**Don't need all this detail?** These docs are more concise:
+- **[Setup Guide](SETUP.md)** ⚡ Quick start - get running in 5 minutes
+- **[API Documentation](API.md)** - GraphQL queries with examples
+- **[Docker Setup](DOCKER.md)** - Just the Docker commands
+- **[Testing Guide](TESTING.md)** - How to run tests
+
+**Want more detail:**
+- **[CI/CD Pipeline](CICD.md)** - GitHub Actions workflows
+- **[Contributing](CONTRIBUTING.md)** - How to contribute
 
 ---
 
