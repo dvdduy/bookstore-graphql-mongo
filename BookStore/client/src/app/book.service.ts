@@ -32,28 +32,30 @@ export class BookService {
   getBookDetail$(id: string): Observable<BookDetail> {
     return this.apollo.watchQuery<GraphQLResponse<'book', BookDetail>>({
       query: gql`
-      {
-        book(id: "${id}") {
-          id,
-          title,
-          description,
-          imageUrl,
-          publisher,
-          publishedDate,          
-          length,
-          authors {
+        query GetBook($id: String!) {
+          book(id: $id) {
             id,
-            name
-          },
-          reviews {
-            id,
-            rating,
             title,
-            description
+            description,
+            imageUrl,
+            publisher,
+            publishedDate,          
+            length,
+            authors {
+              id,
+              name
+            },
+            reviews {
+              id,
+              rating,
+              title,
+              description
+            }
+            averageReview
           }
-          averageReview
         }
-      }`
+      `,
+      variables: { id }
     }).valueChanges.pipe(map(x => x.data.book));
   }
 }

@@ -1,0 +1,51 @@
+version: '3.8'
+
+# Development-focused Docker Compose
+# Use this for local development with hot reload
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: bookstore-mongodb-dev
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: bookstoredb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_dev_data:/data/db
+    networks:
+      - bookstore-network
+
+  # Backend API (Run locally, not in container for hot reload)
+  # Uncomment if you want to run API in container too
+  # api:
+  #   build:
+  #     context: ./BookStore
+  #     dockerfile: Dockerfile
+  #   container_name: bookstore-api-dev
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     - ASPNETCORE_URLS=http://+:5000
+  #     - MongoDbConfiguration__ConnectionString=mongodb://admin:admin123@mongodb:27017
+  #     - MongoDbConfiguration__Database=bookstoredb
+  #   ports:
+  #     - "5000:5000"
+  #   volumes:
+  #     - ./BookStore:/src
+  #   depends_on:
+  #     - mongodb
+  #   networks:
+  #     - bookstore-network
+
+networks:
+  bookstore-network:
+    driver: bridge
+
+volumes:
+  mongodb_dev_data:
+    driver: local
+

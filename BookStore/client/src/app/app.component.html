@@ -10,7 +10,21 @@
         </div>
         <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
-                <ng-container *ngIf="bookDetail">
+                <!-- Loading state -->
+                <div *ngIf="isLoadingDetail" class="text-center p-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Loading book details...</p>
+                </div>
+                
+                <!-- Error state -->
+                <div *ngIf="detailErrorMessage && !isLoadingDetail" class="alert alert-danger m-3" role="alert">
+                    <strong>Error:</strong> {{ detailErrorMessage }}
+                </div>
+                
+                <!-- Book detail -->
+                <ng-container *ngIf="bookDetail$ | async as bookDetail">
                     <app-book-detail [book]="bookDetail"></app-book-detail>
                 </ng-container>
             </div>

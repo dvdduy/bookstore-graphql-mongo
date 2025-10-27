@@ -38,6 +38,18 @@ namespace BookStore.GraphQL
             services.AddSingleton<IBookContext, BookContext>();
             services.AddScoped<IBookRepository, BookRepository>();
 
+            // CORS configuration
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngularApp", builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                           .AllowAnyMethod()
+                           .AllowAnyHeader()
+                           .AllowCredentials();
+                });
+            });
+
             // GraphQL
             services.AddGraphQLServer()
                 .AddQueryType<Query>();
@@ -50,6 +62,9 @@ namespace BookStore.GraphQL
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Enable CORS before routing
+            app.UseCors("AllowAngularApp");
 
             app.UseRouting();
 

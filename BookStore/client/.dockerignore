@@ -1,0 +1,14 @@
+**/.dockerignore
+**/.git
+**/.gitignore
+**/node_modules
+**/npm-debug.log
+**/coverage
+**/dist
+**/.angular
+**/.vs
+**/.vscode
+**/.idea
+**/.DS_Store
+**/Thumbs.db
+
