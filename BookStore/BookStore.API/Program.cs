@@ -62,7 +62,8 @@ try
     builder.Services
         .AddGraphQLServer()
         .AddQueryType<Query>()
-        .AddMutationType<Mutation>();
+        .AddMutationType<Mutation>()
+        .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = true); // Show detailed errors in Development
 
     // Health checks
     builder.Services.AddHealthChecks()
@@ -114,3 +115,6 @@ finally
 {
     Log.CloseAndFlush();
 }
+
+// Make the implicit Program class public for integration tests
+public partial class Program { }

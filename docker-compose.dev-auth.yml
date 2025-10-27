@@ -1,0 +1,39 @@
+version: '3.8'
+
+# Development Docker Compose WITH AUTHENTICATION
+# Use this when you want production-like security setup
+# MongoDB runs WITH authentication
+
+services:
+  # MongoDB Database (With Authentication)
+  mongodb:
+    image: mongo:7.0
+    container_name: bookstore-mongodb-dev-auth
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: BookStoreDB
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_dev_auth_data:/data/db
+      - ./docker/mongo-init-auth.js:/docker-entrypoint-initdb.d/mongo-init-auth.js:ro
+    networks:
+      - bookstore-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')", "-u", "admin", "-p", "admin123", "--authenticationDatabase", "admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    command: ["--auth"]
+
+networks:
+  bookstore-network:
+    driver: bridge
+
+volumes:
+  mongodb_dev_auth_data:
+    driver: local
+

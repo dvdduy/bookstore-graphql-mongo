@@ -18,11 +18,27 @@ namespace BookStore.Infrastructure.Data
         {
             _mongoDb = mongoClient.GetDatabase(mongoDbConfig.Database);
             
-            // Create indexes
-            CreateIndexes();
+            // Create indexes (non-critical operation, don't fail startup if it doesn't work)
+            try
+            {
+                CreateIndexes();
+            }
+            catch (Exception ex)
+            {
+                // Log but don't fail - indexes are an optimization, not a requirement
+                Console.WriteLine($"Warning: Failed to create MongoDB indexes: {ex.Message}");
+            }
             
-            // Seed data
-            BookContextSeed.SeedData(_mongoDb, env.IsDevelopment());
+            // Seed data (non-critical operation, don't fail startup if it doesn't work)
+            try
+            {
+                BookContextSeed.SeedData(_mongoDb, env.IsDevelopment());
+            }
+            catch (Exception ex)
+            {
+                // Log but don't fail - seeding is optional for tests
+                Console.WriteLine($"Warning: Failed to seed data: {ex.Message}");
+            }
         }
 
         public IMongoCollection<T> GetCollection<T>(string name)

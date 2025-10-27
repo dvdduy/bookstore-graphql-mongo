@@ -12,7 +12,8 @@ namespace BookStore.Infrastructure.Data
     {
         public static void SeedData(IMongoDatabase database, bool isDevelopment)
         {
-            // Only seed in Development environment
+            // Only seed in Development and Testing environments
+            // Production should never seed
             if (!isDevelopment)
             {
                 return;

@@ -1,24 +1,31 @@
 version: '3.8'
 
-# Development-focused Docker Compose
-# Use this for local development with hot reload
+# Development-focused Docker Compose (NO AUTHENTICATION)
+# Perfect for local development and integration tests
+# MongoDB runs WITHOUT authentication for easy testing
 
 services:
-  # MongoDB Database
+  # MongoDB Database (No Authentication)
   mongodb:
     image: mongo:7.0
     container_name: bookstore-mongodb-dev
     restart: unless-stopped
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: admin123
-      MONGO_INITDB_DATABASE: bookstoredb
     ports:
       - "27017:27017"
     volumes:
       - mongodb_dev_data:/data/db
+      - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     networks:
       - bookstore-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    environment:
+      # No auth - easier for development and testing
+      MONGO_INITDB_DATABASE: BookStoreDB
 
   # Backend API (Run locally, not in container for hot reload)
   # Uncomment if you want to run API in container too
