@@ -13,9 +13,9 @@ namespace BookStore.Infrastructure.Data
     {
         private readonly IMongoDatabase _mongoDb;
 
-        public BookContext(MongoDbConfiguration mongoDbConfig, IHostEnvironment env)
+        public BookContext(IMongoClient mongoClient, MongoDbConfiguration mongoDbConfig, IHostEnvironment env)
         {
-            _mongoDb = new MongoClient(mongoDbConfig.ConnectionString).GetDatabase(mongoDbConfig.Database);
+            _mongoDb = mongoClient.GetDatabase(mongoDbConfig.Database);
             BookContextSeed.SeedData(_mongoDb, env.IsDevelopment());
         }
 
