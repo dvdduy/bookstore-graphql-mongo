@@ -14,9 +14,10 @@ Welcome to the BookStore documentation!
 3. **[Docker Guide](DOCKER.md)** - Container management and workflows
 4. **[Testing Guide](TESTING.md)** - How to run and write tests
 5. **[API Reference](API.md)** - GraphQL API documentation
+6. **[CI/CD Pipeline](CICD.md)** - Automated testing and deployment
 
 ### **Contributing**
-6. **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
+7. **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
 
 ---
 
@@ -29,6 +30,7 @@ Welcome to the BookStore documentation!
 | Use Docker | [Docker Guide](DOCKER.md) |
 | Run tests | [Testing Guide](TESTING.md) |
 | Use the GraphQL API | [API Reference](API.md) |
+| Set up CI/CD | [CI/CD Pipeline](CICD.md) |
 | Contribute code | [Contributing Guide](CONTRIBUTING.md) |
 | Fix Docker issues | [Docker Troubleshooting](DOCKER.md#-troubleshooting) |
 | Fix test failures | [Testing Troubleshooting](TESTING.md#-troubleshooting) |
@@ -46,6 +48,7 @@ bookstore-graphql-mongo/
 │   ├── DOCKER.md               # Docker workflows
 │   ├── TESTING.md              # Testing guide
 │   ├── API.md                  # GraphQL API reference
+│   ├── CICD.md                 # CI/CD pipeline
 │   └── CONTRIBUTING.md         # Contribution guidelines
 └── [source code...]
 ```
@@ -72,9 +75,9 @@ Our documentation follows these principles:
 | Docker | ✅ Complete | [DOCKER.md](DOCKER.md) |
 | Testing | ✅ Complete | [TESTING.md](TESTING.md) |
 | API | ✅ Complete | [API.md](API.md) |
+| CI/CD | ✅ Complete | [CICD.md](CICD.md) |
 | Contributing | ✅ Complete | [CONTRIBUTING.md](CONTRIBUTING.md) |
 | Architecture | 🔄 In Progress | - |
-| Deployment | 🔄 In Progress | - |
 
 ---
 

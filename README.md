@@ -2,6 +2,10 @@
 
 Modern full-stack application with **GraphQL**, **MongoDB**, and **Angular 18**. Built with .NET 9, featuring comprehensive testing and Docker support.
 
+[![CI Pipeline](https://github.com/dvdduy/bookstore-graphql-mongo/actions/workflows/ci.yml/badge.svg)](https://github.com/dvdduy/bookstore-graphql-mongo/actions/workflows/ci.yml)
+[![CD Pipeline](https://github.com/dvdduy/bookstore-graphql-mongo/actions/workflows/cd.yml/badge.svg)](https://github.com/dvdduy/bookstore-graphql-mongo/actions/workflows/cd.yml)
+[![License](https://img.shields.io/github/license/dvdduy/bookstore-graphql-mongo)](LICENSE)
+
 ---
 
 ## 🚀 Quick Start
@@ -32,14 +36,17 @@ cd BookStore/client && npm install && npm start
 
 ## ✨ What This Is
 
-A **production-ready** GraphQL API with MongoDB backend and Angular frontend, demonstrating:
+A **learning project** demonstrating modern full-stack development with GraphQL, MongoDB, and Angular:
 
 - ✅ Modern .NET 9 with HotChocolate GraphQL
 - ✅ MongoDB with proper patterns (singleton, indexing)
 - ✅ Angular 18 with Apollo Client
 - ✅ Comprehensive testing (unit + integration)
 - ✅ Docker support (dev & production)
+- ✅ CI/CD with GitHub Actions (no cloud provider required)
 - ✅ Best practices (error handling, validation, logging)
+
+> **Note:** This project is designed for learning and demonstration purposes. The CI/CD pipeline uses only GitHub Actions and GitHub Container Registry - no external cloud providers needed!
 
 ---
 
@@ -60,10 +67,17 @@ A **production-ready** GraphQL API with MongoDB backend and Angular frontend, de
 - **Memory leak prevention**
 - **Loading & error states**
 
+### **DevOps**
+- **GitHub Actions** CI/CD pipeline
+- **Automated testing** on push/PR
+- **Docker** image building & publishing
+- **Dependabot** dependency updates
+- **Security scanning** with CodeQL & Trivy
+
 ### **Testing**
-- **24 total tests** (11 unit, 13 integration)
-- **100% passing** (with MongoDB running)
-- **FluentAssertions** for readability
+- **97 total tests** (11 backend unit, 13 integration, 79 frontend)
+- **100% passing** backend & frontend
+- **FluentAssertions** for .NET, **Jasmine/Karma** for Angular
 - **WebApplicationFactory** for integration tests
 
 ---
@@ -190,6 +204,22 @@ This project demonstrates **production-ready** patterns:
 ✅ **Type Safety** - TypeScript + C# strict mode  
 ✅ **Modern Stack** - Latest .NET 9 & Angular 18  
 ✅ **Best Practices** - Singleton patterns, async/await, memory leak prevention  
+
+---
+
+## 🎓 Learning Focus
+
+This project is built for **educational purposes** to demonstrate:
+
+- **Modern full-stack architecture** with real-world patterns
+- **GraphQL API development** with HotChocolate and Apollo
+- **MongoDB integration** with proper indexing and health checks
+- **Angular best practices** including memory leak prevention
+- **Comprehensive testing** strategies (unit + integration)
+- **DevOps practices** with Docker and GitHub Actions CI/CD
+- **Code quality** with automated testing and security scanning
+
+> **No cloud provider needed!** Everything runs locally or on GitHub's free tier. Perfect for learning without spending money.
 
 ---
 
