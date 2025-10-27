@@ -211,7 +211,7 @@ This project demonstrates **production-ready** patterns:
 
 This project is built for **educational purposes** to demonstrate:
 
-- **Modern full-stack architecture** with real-world patterns
+- **Modern full-stack architecture** with real-world patterns (see [Architecture Diagrams](docs/ARCHITECTURE.md))
 - **GraphQL API development** with HotChocolate and Apollo
 - **MongoDB integration** with proper indexing and health checks
 - **Angular best practices** including memory leak prevention
@@ -220,6 +220,8 @@ This project is built for **educational purposes** to demonstrate:
 - **Code quality** with automated testing and security scanning
 
 > **No cloud provider needed!** Everything runs locally or on GitHub's free tier. Perfect for learning without spending money.
+> 
+> **Want to understand the architecture?** Check out our [C4 diagrams](docs/ARCHITECTURE.md) with visual documentation!
 
 ---
 

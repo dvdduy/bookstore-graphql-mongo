@@ -10,14 +10,17 @@ Welcome to the BookStore documentation!
 1. **[Main README](../README.md)** - Project overview and quick start
 2. **[Setup Guide](SETUP.md)** - Complete installation instructions
 
+### **Architecture**
+3. **[Architecture Guide](ARCHITECTURE.md)** - C4 diagrams and system design
+
 ### **Development**
-3. **[Docker Guide](DOCKER.md)** - Container management and workflows
-4. **[Testing Guide](TESTING.md)** - How to run and write tests
-5. **[API Reference](API.md)** - GraphQL API documentation
-6. **[CI/CD Pipeline](CICD.md)** - Automated testing and deployment
+4. **[Docker Guide](DOCKER.md)** - Container management and workflows
+5. **[Testing Guide](TESTING.md)** - How to run and write tests
+6. **[API Reference](API.md)** - GraphQL API documentation
+7. **[CI/CD Pipeline](CICD.md)** - Automated testing and deployment
 
 ### **Contributing**
-7. **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
+8. **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
 
 ---
 
@@ -27,6 +30,7 @@ Welcome to the BookStore documentation!
 |--------------|-----------|
 | Get the app running | [README Quick Start](../README.md#-quick-start) |
 | Set up from scratch | [Setup Guide](SETUP.md) |
+| Understand the architecture | [Architecture Guide](ARCHITECTURE.md) |
 | Use Docker | [Docker Guide](DOCKER.md) |
 | Run tests | [Testing Guide](TESTING.md) |
 | Use the GraphQL API | [API Reference](API.md) |
@@ -45,6 +49,7 @@ bookstore-graphql-mongo/
 ├── docs/
 │   ├── README.md               # 👈 You are here
 │   ├── SETUP.md                # Complete setup guide
+│   ├── ARCHITECTURE.md         # C4 diagrams & system design
 │   ├── DOCKER.md               # Docker workflows
 │   ├── TESTING.md              # Testing guide
 │   ├── API.md                  # GraphQL API reference
@@ -72,12 +77,12 @@ Our documentation follows these principles:
 | Area | Status | Docs |
 |------|--------|------|
 | Setup | ✅ Complete | [SETUP.md](SETUP.md) |
+| Architecture | ✅ Complete | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | Docker | ✅ Complete | [DOCKER.md](DOCKER.md) |
 | Testing | ✅ Complete | [TESTING.md](TESTING.md) |
 | API | ✅ Complete | [API.md](API.md) |
 | CI/CD | ✅ Complete | [CICD.md](CICD.md) |
 | Contributing | ✅ Complete | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| Architecture | 🔄 In Progress | - |
 
 ---
 
