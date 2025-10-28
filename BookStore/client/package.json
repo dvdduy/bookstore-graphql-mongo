@@ -20,7 +20,7 @@
     "@angular/router": "^18.2.14",
     "@apollo/client": "^3.11.8",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
-    "apollo-angular": "^7.0.2",
+    "apollo-angular": "^7.2.1",
     "bootstrap": "^5.3.8",
     "graphql": "^16.11.0",
     "rxjs": "~7.5.0",
