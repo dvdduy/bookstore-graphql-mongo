@@ -49,7 +49,7 @@ jobs:
         fi
     
     - name: Build and push API Docker image
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: ./BookStore
         file: ./BookStore/Dockerfile
@@ -59,7 +59,7 @@ jobs:
         cache-to: type=gha,mode=max
     
     - name: Build and push Frontend Docker image
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: ./BookStore/client
         file: ./BookStore/client/Dockerfile
